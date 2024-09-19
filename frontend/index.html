@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca-Oferta Mercado Livre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>Buscador de Oferta</h1>
+        <h2><a href="https://www.mercadolivre.com.br/"><img id="logo" src="/frontend/assets/logo_mercadolivre.webp"></a></h2>
+    </div>
+    <div>
+        <form action="http://localhost:3000/scrape" method="get">
+        <input type="text" name="produto" placeholder="Digite o produto" required>
+        <br><br>
+        <input type="submit" value="Buscar ofertas">
+        </form>
+    </div>
+
+</body>
+</html>
