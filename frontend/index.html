@@ -9,7 +9,7 @@
 <body>
     <div>
         <h1>Buscador de Oferta</h1>
-        <h2><a href="https://www.mercadolivre.com.br/"><img id="logo" src="/frontend/assets/logo_mercadolivre.webp"></a></h2>
+        <h2><a href="https://www.mercadolivre.com.br/"><img id="logo" src="https://seeklogo.com/images/M/mercado-livre-logo-2334A3DC42-seeklogo.com.png"></a></h2>
     </div>
     <div>
         <form id="formulario" action="http://localhost:3000/scrape" method="get" onsubmit="bloquearFormulario()">
@@ -34,7 +34,7 @@
             botaoConfirma.style.cursor = "not-allowed";
 
             const rodaLoading = document.getElementById('carregamento');
-            rodaLoading.style.visibility = 'visible';
+            rodaLoading.style.display = 'flex';
         }
     </script>
 </body>

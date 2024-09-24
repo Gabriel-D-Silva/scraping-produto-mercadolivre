@@ -5,7 +5,7 @@
 }
 
 #carregamento {
-    visibility: hidden;
+    display: none;
     padding-top: 25px;
     }
 
@@ -38,7 +38,7 @@ h2 {
 }
 
 #logo {
-    width: 150px;
+    width: 200px;
     height: auto;
 }
 
