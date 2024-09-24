@@ -19,9 +19,6 @@ app.get('/scrape', async (req, res) => {
     // Aguarda o resultado da função de scraping
     const resultado = await scrapeMercadoLivre(produto);
 
-    // Exibe o resultado no console
-    console.log(resultado);
-
     // Envia o resultado como resposta
     res.json(resultado);
   

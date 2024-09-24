@@ -12,12 +12,30 @@
         <h2><a href="https://www.mercadolivre.com.br/"><img id="logo" src="/frontend/assets/logo_mercadolivre.webp"></a></h2>
     </div>
     <div>
-        <form action="http://localhost:3000/scrape" method="get">
-        <input type="text" name="produto" placeholder="Digite o produto" required>
-        <br><br>
-        <input type="submit" value="Buscar ofertas">
+        <form id="formulario" action="http://localhost:3000/scrape" method="get" onsubmit="bloquearFormulario()">
+        <div>
+            <input type="text" name="produto" placeholder="Digite o produto" required>
+        </div>
+        <br>
+        <div>
+            <input id="botao-confirmar" type="submit" value="Buscar ofertas">
+        </div>
         </form>
+        <div id="carregamento">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif" alt="Loading" width="100px" height="100px">
+        </div>
     </div>
+    <script>
+        function bloquearFormulario() {
+            let botaoConfirma = document.getElementById('botao-confirmar');
+            botaoConfirma.disabled = true;
+            botaoConfirma.value = "Aguarde um momento...";
+            botaoConfirma.style.opacity = "0.5";
+            botaoConfirma.style.cursor = "not-allowed";
 
+            const rodaLoading = document.getElementById('carregamento');
+            rodaLoading.style.visibility = 'visible';
+        }
+    </script>
 </body>
 </html>
