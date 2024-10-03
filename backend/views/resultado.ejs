@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+</head>
+<body>
+    <h1>Resultados</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Preço</th>
+                <th>Nota</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% resultados.forEach(resultado => { %>
+                <tr>
+                    <td><%= resultado.titulo %></td>
+                    <td>R$ <%= resultado.valor %></td>
+                    <td><%= resultado.nota %></td>
+                    <td><a href="<%=resultado.link%>" target="_blank">Ver produto</a></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,11 +1,13 @@
-const express = require('express');
-const scrapeMercadoLivre = require('./scraping')
-const cors = require('cors')
+const express = require('express');;
+const scrapeMercadoLivre = require('./scraping');
+const cors = require('cors');
+const ejs = require('ejs');
 
 const porta = 3000;
 
 const app = express();
 
+app.set('view engine', 'ejs');
 app.use(cors());
 app.use(express.json());
 
@@ -16,11 +18,8 @@ app.get('/scrape', async (req, res) => {
 
   try {
 
-    // Aguarda o resultado da função de scraping
-    const resultado = await scrapeMercadoLivre(produto);
-
-    // Envia o resultado como resposta
-    res.json(resultado);
+    const resultados = await scrapeMercadoLivre(produto);
+    await res.render('resultado', { resultados });
   
   } catch (error) {
 
