@@ -1,5 +1,6 @@
 const express = require('express');;
-const scrapeMercadoLivre = require('./scraping');
+const scrapeLinksMC = require('./scrap_href');
+const scrapeItensInfo = require('./cluster');
 const cors = require('cors');
 const ejs = require('ejs');
 
@@ -16,11 +17,17 @@ app.get('/scrape', async (req, res) => {
 
   const produto = req.query.produto;
 
+  if (!produto) {
+    return res.status(400).send('Por favor, forneça um produto para busca!')
+  }
+
   try {
 
-    const resultados = await scrapeMercadoLivre(produto);
+    const hrefs = await scrapeLinksMC(produto);
+    const resultados = await scrapeItensInfo(hrefs)
+    
     await res.render('resultado', { resultados });
-  
+
   } catch (error) {
 
     console.error('Erro na rota /scrape:', error.message);
